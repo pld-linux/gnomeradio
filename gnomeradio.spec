@@ -31,7 +31,7 @@ rm -f missing
 libtoolize --copy --force
 aclocal -I macros
 autoconf
-automake -a -c
+automake -a -c -f
 CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
 %configure
 %{__make}
