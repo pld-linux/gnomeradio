@@ -30,8 +30,8 @@ Tuner FM dla Gnome.
 rm -f missing
 libtoolize --copy --force
 aclocal -I macros
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
 %configure
 %{__make}
