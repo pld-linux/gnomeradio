@@ -1,15 +1,17 @@
 Summary:	A FM-Tuner program for Gnome
 Summary(pl):	Tuner FM dla Gnome
 Name:		gnomeradio
-Version:	1.0
+Version:	1.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://mfcn.ilo.de/gnomeradio/%{name}-%{version}.tar.gz
+Patch0:		%{name}-schema.patch
+Patch1:		%{name}-warnings.patch
 URL:		http://mfcn.ilo.de/gnomeradio/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gnome-libs-devel >= 1.2.0
+BuildRequires:	gtk+2 >= 2.0.6
 BuildRequires:	gettext-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	libtool
@@ -20,6 +22,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define		_sysconfdir	/etc/X11/GNOME2/gconf/schemas
 
 %description
 A FM-Tuner program for Gnome.
@@ -29,34 +32,38 @@ Tuner FM dla Gnome.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
-sed 's/dir=\$\$destdir\/\$\$lang/dir=\$\(DESTDIR\)\$\$destdir\/\$\$lang/' po/Makefile.in.in > po/Makefile.in.in.tmp
-mv  po/Makefile.in.in.tmp po/Makefile.in.in
 %{__libtoolize}
-%{__aclocal} -I macros
+%{__aclocal}
 %{__autoconf}
 %{__automake}
-CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
-%configure
+%configure \
+    --disable-install-schemas \
+    --with-gconf-schema-file-dir=%{_sysconfdir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	Applicationsdir=%{_applnkdir}/Multimedia
+	DESTDIR=$RPM_BUILD_ROOT 
 
-%find_lang Gnomeradio
+%find_lang %{name} --with-gnome --all-name
+
+%post
+%gconf_schema_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f Gnomeradio.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
+%{_datadir}/applications/*.desktop
 %{_pixmapsdir}/*
-%{_applnkdir}/Multimedia/*.desktop
+%{_sysconfdir}/*
