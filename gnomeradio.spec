@@ -11,6 +11,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-libs-devel >= 1.2.0
 BuildRequires:	gettext-devel
+BuildRequires:	ncurses-devel
 BuildRequires:	libtool
 %ifnarch sparc sparcv9 sparc64 alpha
 BuildRequires:	lirc-devel
@@ -31,11 +32,13 @@ Tuner FM dla Gnome.
 
 %build
 rm -f missing
+sed 's/dir=\$\$destdir\/\$\$lang/dir=\$\(DESTDIR\)\$\$destdir\/\$\$lang/' po/Makefile.in.in > po/Makefile.in.in.tmp
+mv  po/Makefile.in.in.tmp po/Makefile.in.in
 %{__libtoolize}
 aclocal -I macros
 %{__autoconf}
 %{__automake}
-# CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
+CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
 %configure
 %{__make}
 
@@ -46,12 +49,12 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Applicationsdir=%{_applnkdir}/Multimedia
 
-%find_lang %{name}
+%find_lang Gnomeradio
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files -f Gnomeradio.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
