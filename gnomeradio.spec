@@ -11,10 +11,11 @@ Patch1:		%{name}-warnings.patch
 URL:		http://mfcn.ilo.de/gnomeradio/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2 >= 2.0.6
 BuildRequires:	gettext-devel
-BuildRequires:	ncurses-devel
+BuildRequires:	gtk+2 >= 2.0.6
 BuildRequires:	libtool
+BuildRequires:	ncurses-devel
+BuildRequires:	rpm-build >= 4.1-7
 Requires:	bonobo-activation >= 2.1.0
 %ifnarch sparc sparcv9 sparc64 alpha
 BuildRequires:	lirc-devel
