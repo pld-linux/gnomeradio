@@ -10,15 +10,16 @@ Source0:	http://mfcn.ilo.de/gnomeradio/%{name}-%{version}.tar.gz
 Patch0:		%{name}-schema.patch
 Patch1:		%{name}-warnings.patch
 URL:		http://mfcn.ilo.de/gnomeradio/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2 >= 2.1.5
 BuildRequires:	libtool
+BuildRequires:	libgnomeui-devel >= 2.0
 BuildRequires:	lirc-devel
 BuildRequires:	ncurses-devel
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	bonobo-activation >= 2.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -65,4 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_omf_dest_dir}/*
 %{_pixmapsdir}/*
+# shouldn't schemas be in default location?
+#%{_sysconfdir}/gconf/schemas/*
 %{_sysconfdir}/*
