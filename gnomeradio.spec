@@ -2,7 +2,7 @@ Summary:	A FM-Tuner program for GNOME
 Summary(pl):	Tuner FM dla GNOME
 Name:		gnomeradio
 Version:	1.4
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications
 Source0:	http://mfcn.ilo.de/gnomeradio/%{name}-%{version}.tar.gz
@@ -43,7 +43,7 @@ rm -f missing
 %{__automake}
 %configure \
 	--disable-install-schemas \
-	--with-gconf-schema-file-dir=%{_sysconfdir}
+	--with-gconf-schema-file-dir=%{_sysconfdir}/gconf/schemas
 
 %{__make}
 
@@ -68,6 +68,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_omf_dest_dir}/*
 %{_pixmapsdir}/*
-# shouldn't schemas be in default location?
-#%{_sysconfdir}/gconf/schemas/*
-%{_sysconfdir}/*
+%{_sysconfdir}/gconf/schemas/*
