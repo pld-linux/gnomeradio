@@ -12,7 +12,9 @@ BuildRequires:	automake
 BuildRequires:	gnome-libs-devel >= 1.2.0
 BuildRequires:	gettext-devel
 BuildRequires:	libtool
+%ifnarch sparc sparcv9 sparc64 alpha
 BuildRequires:	lirc-devel
+%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -44,14 +46,14 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Applicationsdir=%{_applnkdir}/Multimedia
 
-gzip -9nf AUTHORS ChangeLog NEWS README
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*
 %{_applnkdir}/Multimedia/*.desktop
