@@ -1,7 +1,7 @@
 Summary:	A FM-Tuner program for Gnome
 Summary(pl):	Tuner FM dla Gnome
 Name:		gnomeradio
-Version:	0.3
+Version:	1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -10,6 +10,7 @@ URL:		http://mfcn.ilo.de/gnomeradio/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gnome-libs-devel >= 1.2.0
+BuildRequires:	gettext-devel
 BuildRequires:	libtool
 BuildRequires:	lirc-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,7 +33,7 @@ rm -f missing
 aclocal -I macros
 %{__autoconf}
 %{__automake}
-CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
+# CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
 %configure
 %{__make}
 
