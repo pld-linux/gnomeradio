@@ -1,27 +1,27 @@
-diff -urN gnomeradio-1.3.orig/src/gui.c gnomeradio-1.3/src/gui.c
---- gnomeradio-1.3.orig/src/gui.c	Tue Oct 22 10:18:59 2002
-+++ gnomeradio-1.3/src/gui.c	Tue Oct 22 10:42:28 2002
-@@ -459,7 +459,6 @@
- 			if (retval > 0)
- 				start_recording();
- 			break;
+diff -urN gnomeradio-1.4.orig/src/gui.c gnomeradio-1.4/src/gui.c
+--- gnomeradio-1.4.orig/src/gui.c	Tue Dec 17 23:33:03 2002
++++ gnomeradio-1.4/src/gui.c	Tue Dec 17 23:44:10 2002
+@@ -987,7 +987,6 @@
+ 		case GDK_KP_Subtract: 
+ 				gtk_adjustment_set_value(volume,(volume->value < 5) ? 0 : volume->value-5);
+ 				break;
 -		default:
  	}
+ 	return FALSE;
  }
+diff -urN gnomeradio-1.4.orig/src/gui.h gnomeradio-1.4/src/gui.h
+--- gnomeradio-1.4.orig/src/gui.h	Tue Dec 17 23:33:03 2002
++++ gnomeradio-1.4/src/gui.h	Tue Dec 17 23:38:29 2002
+@@ -69,4 +69,4 @@
  
-diff -urN gnomeradio-1.3.orig/src/gui.h gnomeradio-1.3/src/gui.h
---- gnomeradio-1.3.orig/src/gui.h	Tue Oct 22 10:18:59 2002
-+++ gnomeradio-1.3/src/gui.h	Tue Oct 22 10:40:14 2002
-@@ -79,4 +79,4 @@
- 
- void preset_menu_set_item(gint i);
+ void change_preset(gboolean next);
  
 -#endif
 \ No newline at end of file
 +#endif
-diff -urN gnomeradio-1.3.orig/src/lirc.h gnomeradio-1.3/src/lirc.h
---- gnomeradio-1.3.orig/src/lirc.h	Tue Oct 22 10:18:59 2002
-+++ gnomeradio-1.3/src/lirc.h	Tue Oct 22 10:40:32 2002
+diff -urN gnomeradio-1.4.orig/src/lirc.h gnomeradio-1.4/src/lirc.h
+--- gnomeradio-1.4.orig/src/lirc.h	Tue Dec 17 23:33:03 2002
++++ gnomeradio-1.4/src/lirc.h	Tue Dec 17 23:39:17 2002
 @@ -32,4 +32,4 @@
  
  void start_lirc(void);
@@ -29,9 +29,9 @@ diff -urN gnomeradio-1.3.orig/src/lirc.h gnomeradio-1.3/src/lirc.h
 -#endif
 \ No newline at end of file
 +#endif
-diff -urN gnomeradio-1.3.orig/src/prefs.h gnomeradio-1.3/src/prefs.h
---- gnomeradio-1.3.orig/src/prefs.h	Tue Oct 22 10:18:59 2002
-+++ gnomeradio-1.3/src/prefs.h	Tue Oct 22 10:40:55 2002
+diff -urN gnomeradio-1.4.orig/src/prefs.h gnomeradio-1.4/src/prefs.h
+--- gnomeradio-1.4.orig/src/prefs.h	Tue Dec 17 23:33:03 2002
++++ gnomeradio-1.4/src/prefs.h	Tue Dec 17 23:41:18 2002
 @@ -29,4 +29,4 @@
  
  GtkWidget* prefs_window(void);
@@ -39,22 +39,22 @@ diff -urN gnomeradio-1.3.orig/src/prefs.h gnomeradio-1.3/src/prefs.h
 -#endif
 \ No newline at end of file
 +#endif
-diff -urN gnomeradio-1.3.orig/src/record.h gnomeradio-1.3/src/record.h
---- gnomeradio-1.3.orig/src/record.h	Tue Oct 22 10:18:59 2002
-+++ gnomeradio-1.3/src/record.h	Tue Oct 22 10:40:42 2002
-@@ -27,4 +27,4 @@
- 
- GtkWidget* record_status_window(void);	
+diff -urN gnomeradio-1.4.orig/src/rec_tech.h gnomeradio-1.4/src/rec_tech.h
+--- gnomeradio-1.4.orig/src/rec_tech.h	Tue Dec 17 23:33:03 2002
++++ gnomeradio-1.4/src/rec_tech.h	Tue Dec 17 23:38:44 2002
+@@ -73,4 +73,4 @@
+ int
+ get_file_size(char *filename);
  
 -#endif
 \ No newline at end of file
 +#endif
-diff -urN gnomeradio-1.3.orig/src/tech.h gnomeradio-1.3/src/tech.h
---- gnomeradio-1.3.orig/src/tech.h	Tue Oct 22 10:18:59 2002
-+++ gnomeradio-1.3/src/tech.h	Tue Oct 22 10:40:23 2002
-@@ -77,4 +77,4 @@
+diff -urN gnomeradio-1.4.orig/src/record.h gnomeradio-1.4/src/record.h
+--- gnomeradio-1.4.orig/src/record.h	Tue Dec 17 23:33:03 2002
++++ gnomeradio-1.4/src/record.h	Tue Dec 17 23:39:29 2002
+@@ -27,4 +27,4 @@
  
- int get_file_size(char *filename);
+ GtkWidget* record_status_window(void);	
  
 -#endif
 \ No newline at end of file
