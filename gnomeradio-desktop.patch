@@ -7,19 +7,7 @@
  _Comment=A Gnome FM-Tuner
  Exec=gnomeradio
  Icon=radio.png
--Terminal=0
-+Terminal=false
- Type=Application
 -Categories=Application;AudioVideo;
 +Categories=GTK;GNOME;Audio;Tuner;
---- gnomeradio-1.4/po/pl.po~	2004-09-20 11:05:39.000000000 +0200
-+++ gnomeradio-1.4/po/pl.po	2004-09-20 11:05:39.000000000 +0200
-@@ -160,7 +160,7 @@
- 
- #: gnomeradio.desktop.in.h:1
- msgid "A Gnome FM-Tuner"
--msgstr ""
-+msgstr "Tuner radiowy dla GNOME"
- 
- #: gnomeradio.desktop.in.h:2 src/gui.c:717
- msgid "Gnomeradio"
+ StartupNotify=true
+ Type=Application
