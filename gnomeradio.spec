@@ -10,6 +10,7 @@ Source0:	http://mfcn.ilo.de/gnomeradio/%{name}-%{version}.tar.gz
 Patch0:		%{name}-schema.patch
 Patch1:		%{name}-warnings.patch
 Patch2:		%{name}-do_not_popup_without_lirc.patch
+Patch3:		%{name}-no_disable_deprecated.patch
 URL:		http://mfcn.ilo.de/gnomeradio/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -35,6 +36,7 @@ Tuner FM dla GNOME.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p0
 
 %build
 rm -f missing
