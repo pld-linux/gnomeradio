@@ -1,7 +1,7 @@
 Summary:	A FM-Tuner program for Gnome
 Summary(pl):	Tuner FM dla Gnome
 Name:		gnomeradio
-Version:	0.1
+Version:	0.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
