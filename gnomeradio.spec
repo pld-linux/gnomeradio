@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://mfcn.ilo.de/gnomeradio/%{name}-%{version}.tar.gz
+# Source0-md5:	799efdfeb7c44f82cbb4b3c8f727f7f5
 Patch0:		%{name}-schema.patch
 Patch1:		%{name}-warnings.patch
 URL:		http://mfcn.ilo.de/gnomeradio/
