@@ -1,0 +1,11 @@
+--- src/Makefile.am~	2002-11-02 12:10:46.000000000 +0100
++++ src/Makefile.am	2004-08-18 23:43:29.000000000 +0200
+@@ -2,8 +2,6 @@
+            $(GNOMERADIO_CFLAGS) \
+            -DG_LOG_DOMAIN=\"gnomeradio\" \
+            -DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+-           -DGNOME_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED \
+-           -DGDK_DISABLE_DEPRECATED -DG_DISABLE_DEPRECATED \
+            -DDATADIR=\""$(datadir)/"\" \
+            -DPREFIX=\""$(prefix)/"\" \
+            -DLIBDIR=\""$(libdir)/"\" \
