@@ -15,12 +15,12 @@ BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2 >= 2.1.5
 BuildRequires:	libtool
-BuildRequires:	ncurses-devel
-BuildRequires:	rpm-build >= 4.1-10
-Requires:	bonobo-activation >= 2.1.0
 %ifnarch sparc sparcv9 sparc64 alpha
 BuildRequires:	lirc-devel
 %endif
+BuildRequires:	ncurses-devel
+BuildRequires:	rpm-build >= 4.1-10
+Requires:	bonobo-activation >= 2.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,17 +53,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome --all-name
 
-%post
-%gconf_schema_install
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%gconf_schema_install
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/applications/*.desktop
+%{_desktopdir}/*.desktop
 %{_omf_dest_dir}/*
 %{_pixmapsdir}/*
 %{_sysconfdir}/*
