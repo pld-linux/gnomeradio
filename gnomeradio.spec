@@ -2,7 +2,7 @@ Summary:	A FM-Tuner program for Gnome
 Summary(pl):	Tuner FM dla Gnome
 Name:		gnomeradio
 Version:	1.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications
 Source0:	http://mfcn.ilo.de/gnomeradio/%{name}-%{version}.tar.gz
@@ -12,19 +12,15 @@ URL:		http://mfcn.ilo.de/gnomeradio/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2 >= 2.0.6
+BuildRequires:	gtk+2 >= 2.1.3-3
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
-BuildRequires:	rpm-build >= 4.1-7
+BuildRequires:	rpm-build >= 4.1-8.2
 Requires:	bonobo-activation >= 2.1.0
 %ifnarch sparc sparcv9 sparc64 alpha
 BuildRequires:	lirc-devel
 %endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define		_sysconfdir	/etc/X11/GNOME2/gconf/schemas
 
 %description
 A FM-Tuner program for Gnome.
