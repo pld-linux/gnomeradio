@@ -21,6 +21,7 @@ BuildRequires:	lirc-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
+Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
