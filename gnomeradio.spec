@@ -1,5 +1,5 @@
-Summary:	A FM-Tuner program for Gnome
-Summary(pl):	Tuner FM dla Gnome
+Summary:	A FM-Tuner program for GNOME
+Summary(pl):	Tuner FM dla GNOME
 Name:		gnomeradio
 Version:	1.4
 Release:	2
@@ -24,10 +24,10 @@ Requires:	bonobo-activation >= 2.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A FM-Tuner program for Gnome.
+A FM-Tuner program for GNOME.
 
 %description -l pl
-Tuner FM dla Gnome.
+Tuner FM dla GNOME.
 
 %prep
 %setup -q
