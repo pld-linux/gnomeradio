@@ -35,7 +35,7 @@ rm -f missing
 sed 's/dir=\$\$destdir\/\$\$lang/dir=\$\(DESTDIR\)\$\$destdir\/\$\$lang/' po/Makefile.in.in > po/Makefile.in.in.tmp
 mv  po/Makefile.in.in.tmp po/Makefile.in.in
 %{__libtoolize}
-aclocal -I macros
+%{__aclocal} -I macros
 %{__autoconf}
 %{__automake}
 CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
