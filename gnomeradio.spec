@@ -15,9 +15,7 @@ BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2 >= 2.1.5
 BuildRequires:	libtool
-%ifnarch sparc sparcv9 sparc64 alpha
 BuildRequires:	lirc-devel
-%endif
 BuildRequires:	ncurses-devel
 BuildRequires:	rpm-build >= 4.1-10
 Requires:	bonobo-activation >= 2.1.0
@@ -41,8 +39,9 @@ rm -f missing
 %{__autoconf}
 %{__automake}
 %configure \
-    --disable-install-schemas \
-    --with-gconf-schema-file-dir=%{_sysconfdir}
+	--disable-install-schemas \
+	--with-gconf-schema-file-dir=%{_sysconfdir}
+
 %{__make}
 
 %install
