@@ -1,0 +1,12 @@
+diff -Nuard gnomeradio-1.4.orig/src/gui.c gnomeradio-1.4/src/gui.c
+--- gnomeradio-1.4.orig/src/gui.c	2002-12-14 14:01:48.000000000 +0100
++++ gnomeradio-1.4/src/gui.c	2003-12-01 23:49:55.312786600 +0100
+@@ -1049,7 +1049,7 @@
+ 	
+ #ifdef HAVE_LIRC
+ 	if(!my_lirc_init())
+-		gnome_error_dialog_parented(_("Could not start lirc"), GTK_WINDOW(app));
++		g_print(_("Could not start lirc\n"));
+ 	else
+ 		start_lirc();
+ #endif
