@@ -9,7 +9,10 @@ Group(de):	X11/Applikationen
 Group(pl):	X11/Aplikacje
 Source0:	http://mfcn.ilo.de/gnomeradio/%{name}-%{version}.tar.gz
 URL:		http://mfcn.ilo.de/gnomeradio/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gnome-libs-devel >= 1.2.0
+BuildRequires:	libtool
 BuildRequires:	lirc-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -26,8 +29,13 @@ Tuner FM dla Gnome.
 %setup -q
 
 %build
+rm -f missing
+libtoolize --copy --force
+aclocal -I macros
+autoconf
+automake -a -c
 CPPFLAGS="-I/usr/include/ncurses"; export CPPFLAGS
-%configure2_13
+%configure
 %{__make}
 
 %install
