@@ -1,19 +1,6 @@
-diff -urN gnomeradio-1.3.orig/Makefile.am gnomeradio-1.3/Makefile.am
---- gnomeradio-1.3.orig/Makefile.am	Tue Oct 22 10:18:59 2002
-+++ gnomeradio-1.3/Makefile.am	Tue Oct 22 10:30:50 2002
-@@ -15,7 +15,9 @@
- all-local: $(spec) $(Applications_DATA)
- 
- install-data-local: 
-+if INSTALL_SCHEMAS
- 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
-+endif	
- 
- EXTRA_DIST = $(Applications_DATA) \
-              $(applications_in_files) \
-diff -urN gnomeradio-1.3.orig/configure.in gnomeradio-1.3/configure.in
---- gnomeradio-1.3.orig/configure.in	Tue Oct 22 10:18:59 2002
-+++ gnomeradio-1.3/configure.in	Tue Oct 22 10:22:43 2002
+diff -Nuard gnomeradio-1.4.orig/configure.in gnomeradio-1.4/configure.in
+--- gnomeradio-1.4.orig/configure.in	2002-12-14 13:30:49.000000000 +0100
++++ gnomeradio-1.4/configure.in	2003-12-14 17:03:56.123760032 +0100
 @@ -47,7 +47,11 @@
  else
    echo "*** lirc disabled"
@@ -27,3 +14,25 @@ diff -urN gnomeradio-1.3.orig/configure.in gnomeradio-1.3/configure.in
  
  AC_OUTPUT([
  gnomeradio.spec
+diff -Nuard gnomeradio-1.4.orig/Makefile.am gnomeradio-1.4/Makefile.am
+--- gnomeradio-1.4.orig/Makefile.am	2002-10-18 21:28:06.000000000 +0200
++++ gnomeradio-1.4/Makefile.am	2003-12-14 17:03:56.122760184 +0100
+@@ -5,7 +5,7 @@
+ Applications_DATA = $(applications_in_files:.desktop.in=.desktop)
+ @INTLTOOL_DESKTOP_RULE@
+ 
+-schemadir = @GCONF_SCHEMA_FILE_DIR@
++schemadir = $(GCONF_SCHEMA_FILE_DIR)
+ schema_in_files = gnomeradio.schemas.in
+ schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+ @INTLTOOL_SCHEMAS_RULE@
+@@ -15,7 +15,9 @@
+ all-local: $(spec) $(Applications_DATA)
+ 
+ install-data-local: 
++if INSTALL_SCHEMAS
+ 	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
++endif	
+ 
+ EXTRA_DIST = $(Applications_DATA) \
+              $(applications_in_files) \
