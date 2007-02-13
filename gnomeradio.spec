@@ -1,5 +1,5 @@
 Summary:	A FM-Tuner program for GNOME
-Summary(pl.UTF-8):   Tuner FM dla GNOME
+Summary(pl.UTF-8):	Tuner FM dla GNOME
 Name:		gnomeradio
 Version:	1.6
 Release:	2
