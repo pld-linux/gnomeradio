@@ -17,11 +17,13 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2 >= 2.1.5
-BuildRequires:	libtool
+BuildRequires:	intltool
 BuildRequires:	libgnomeui-devel >= 2.0
+BuildRequires:	libtool
 BuildRequires:	lirc-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	pkgconfig
+BuildRequires:	rarian-compat
 BuildRequires:	rpm-build >= 4.1-10
 Requires(post):	GConf2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -42,6 +44,7 @@ Tuner FM dla GNOME.
 
 %build
 rm -f missing
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
