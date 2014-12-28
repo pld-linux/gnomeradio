@@ -15,7 +15,7 @@ Patch4:		%{name}-desktop.patch
 URL:		http://www.wh-hms.uni-ulm.de/~mfcn/gnomeradio/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtk+2 >= 2.1.5
 BuildRequires:	intltool
 BuildRequires:	libgnomeui-devel >= 2.0
