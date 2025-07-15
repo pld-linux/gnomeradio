@@ -37,9 +37,9 @@ Tuner FM dla GNOME.
 %prep
 %setup -q
 %patch -P0 -p1
-#%patch1 -p1
-#%patch2 -p1
-#%patch3 -p0
+#%%patch1 -p1
+#%%patch2 -p1
+#%%patch3 -p0
 %patch -P4 -p1
 
 %build
